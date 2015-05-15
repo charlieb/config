@@ -94,6 +94,7 @@ Plugin 'ujihisa/neco-ghc'
 
 Plugin 'bling/vim-airline'
 
+call vundle#end()
 
 syntax on
 filetype plugin indent on 
