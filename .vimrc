@@ -67,34 +67,41 @@ set term=xtermc
 filetype off                   " required!
 set nocompatible               " be iMproved
 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-"Bundle "pangloss/vim-javascript"
-Bundle "lukaszb/vim-web-indent"
-Bundle "tpope/vim-fugitive"
-Bundle "jamessan/vim-gnupg"
-Bundle "sophacles/vim-processing"
-Bundle "godlygeek/tabular"
-Bundle "sudar/vim-arduino-syntax"
+Plugin 'VundleVim/Vundle.vim'
+"Bundle 'pangloss/vim-javascript'
+"Plugin 'lukaszb/vim-web-indent'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jamessan/vim-gnupg'
+"Plugin 'sophacles/vim-processing'
+"Plugin 'godlygeek/tabular'
+"Plugin 'sudar/vim-arduino-syntax'
 
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 
-Bundle "Shougo/vimproc.vim"
-let g:haddock_browser = "/usr/bin/firefox"
-Bundle "lukerandall/haskellmode-vim"
-au BufEnter *.hs compiler ghc
+"Plugin 'Shougo/vimproc.vim'
+"let g:haddock_browser = '/usr/bin/firefox'
+"Plugin 'lukerandall/haskellmode-vim'
+"au BufEnter *.hs compiler ghc
+"
+"Plugin 'eagletmt/ghcmod-vim'
+"
+Plugin 'scrooloose/syntastic'
+let g:syntastic_c_include_dirs = ['/usr/include/SDL2']
+"
+"Plugin 'Shougo/neocomplcache'
+"Plugin 'ujihisa/neco-ghc'
 
-Bundle "eagletmt/ghcmod-vim"
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'sirtaj/vim-openscad'
 
-Bundle "scrooloose/syntastic"
-let g:syntastic_c_include_dirs = ["/usr/include/SDL2"]
-
-Bundle "Shougo/neocomplcache"
-Bundle "ujihisa/neco-ghc"
-
+call vundle#end()
 
 syntax on
 filetype plugin indent on 
@@ -104,7 +111,7 @@ set statusline=
 set statusline +=%*\ %n\ %*            "buffer number
 set statusline +=%*\ %<%F%*            "full path
 set statusline +=%*\ %m%*                "modified flag
-set statusline +=%{fugitive#statusline()}\  "git status  
+set statusline +=%{FugitiveStatusline()}\  "git status  
 set statusline +=%= "seperation point between left and right
 set statusline +=%*%{&ff}%*            "file format
 set statusline +=%*%y%*                "file type
@@ -114,6 +121,7 @@ set statusline +=%*%4v\ %*             "virtual column number
 
 set t_Co=256
 "colorscheme darkZ
-colorscheme lucius
+"colorscheme lucius
 "
 " set makeprg=ccmake
+au BufRead,BufNewFile *.pl set filetype=prolog

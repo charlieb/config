@@ -24,6 +24,7 @@ pulseaudio --start
 #exec enlightenment_start
 #exec openbox-session
 #exec fluxbox
+#exec i3
 #exec notion
-exec i3
+exec gnome-session
 
